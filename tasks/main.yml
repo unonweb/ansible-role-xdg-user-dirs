@@ -1,0 +1,22 @@
+---
+- name: xdg-user-dirs role
+  tags:
+    - xdg-user-dirs
+  block:
+
+  # assert
+  - name: Check vars for xdg-user-dirs role
+    ansible.builtin.assert:
+      that:
+        - xdg_user_dirs_user != None
+
+  # user-dirs.dirs
+  - name: Template /home/{{ xdg_user_dirs_user }}/.config/user-dirs.dirs
+    become: true
+    notify: xdg-user-dirs-update
+    ansible.builtin.template:
+      src: user-dirs.dirs.j2
+      dest: "/home/{{ xdg_user_dirs_user }}/.config/user-dirs.dirs"
+      owner: "{{ xdg_user_dirs_user }}"
+      group: "{{ xdg_user_dirs_user }}"
+      mode: u=rw,g=,o=

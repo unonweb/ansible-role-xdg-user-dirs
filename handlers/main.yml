@@ -1,0 +1,7 @@
+---
+- name: update-desktop-database
+  become: true
+  ansible.builtin.command: update-desktop-database
+
+- name: xdg-user-dirs-update
+  ansible.builtin.command: xdg-user-dirs-update

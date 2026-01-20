@@ -1,0 +1,11 @@
+---
+xdg_user_dirs_user: # ~/.config/user-dirs.dirs
+# directories
+xdg_user_dirs_desktop: "$HOME"
+xdg_user_dirs_download: "$HOME/downloads"
+xdg_user_dirs_templates: "$HOME/templates"
+xdg_user_dirs_documents: "$HOME/documents"
+xdg_user_dirs_pictures: "$HOME/images"
+xdg_user_dirs_publicshare: "$HOME/public"
+xdg_user_dirs_music: "$HOME/music"
+xdg_user_dirs_videos: "$HOME/video"

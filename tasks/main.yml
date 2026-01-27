@@ -5,10 +5,27 @@
   block:
 
   # assert
-  - name: Check vars for xdg-user-dirs role
+  - name: Check vars for xdg-user-dirs role 
     ansible.builtin.assert:
       that:
         - xdg_user_dirs_user != None
+        - xdg_user_dirs_desktop != None
+        - xdg_user_dirs_download != None
+        - xdg_user_dirs_templates != None
+        - xdg_user_dirs_documents != None
+        - xdg_user_dirs_pictures != None
+        - xdg_user_dirs_publicshare != None
+        - xdg_user_dirs_music != None
+        - xdg_user_dirs_videos != None
+      fail_msg: |
+        xdg_user_dirs_desktop:    {{ xdg_user_dirs_desktop }}
+        xdg_user_dirs_download:   {{ xdg_user_dirs_download }}
+        xdg_user_dirs_templates:  {{ xdg_user_dirs_templates }}
+        xdg_user_dirs_documents:  {{ xdg_user_dirs_documents }}
+        xdg_user_dirs_pictures:   {{ xdg_user_dirs_pictures }}
+        xdg_user_dirs_publicshare:{{ xdg_user_dirs_publicshare }}
+        xdg_user_dirs_music:      {{ xdg_user_dirs_music }}
+        xdg_user_dirs_videos:     {{ xdg_user_dirs_videos }}
 
   # user-dirs.dirs
   - name: Template /home/{{ xdg_user_dirs_user }}/.config/user-dirs.dirs

@@ -1,1 +1,2 @@
 templates/_user-dirs.defaults.j2
+.ansible/

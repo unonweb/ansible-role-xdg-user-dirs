@@ -27,6 +27,16 @@
         xdg_user_dirs_music:      {{ xdg_user_dirs_music }}
         xdg_user_dirs_videos:     {{ xdg_user_dirs_videos }}
 
+  # mkdir
+  - name: Mkdir /home/{{ xdg_user_dirs_user }}/.config
+    become: true
+    ansible.builtin.file:
+      path: "/home/{{ xdg_user_dirs_user }}/.config"
+      state: directory
+      mode: u=rwx,g=,o=
+      owner: "{{ xdg_user_dirs_user }}"
+      group: "{{ xdg_user_dirs_user }}"
+
   # user-dirs.dirs
   - name: Template /home/{{ xdg_user_dirs_user }}/.config/user-dirs.dirs
     become: true
